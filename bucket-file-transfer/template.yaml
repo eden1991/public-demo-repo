@@ -1,0 +1,90 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  bucket-file-transfer
+  SAM Template for bucket-file-transfer
+
+Globals:
+  Function:
+    Timeout: 300
+
+Resources:
+  BftLambdaExecRole:
+    Type: AWS::IAM::Role
+    Properties: 
+      AssumeRolePolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service:
+              - lambda.amazonaws.com
+            Action:
+              - 'sts:AssumeRole'
+      Description: Execution role for bucket file transfer lambda function
+      ManagedPolicyArns: 
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+      Path: /
+      Policies: 
+        - PolicyName: S3ReadWritePolicy
+          PolicyDocument:
+            Version: 2012-10-17
+            Statement:
+              - Effect: Allow
+                Action:
+                  - s3:GetObject
+                  - s3:GetObjectTagging
+                  - s3:GetObjectVersion
+                  - s3:GetReplicationConfiguration
+                  - s3:ListAllMyBuckets
+                  - s3:ListBucket
+                  - s3:ListBucketMultipartUploads
+                  - s3:ListBucketVersions
+                  - s3:ListJobs
+                  - s3:ListMultipartUploadParts
+                  - s3:PutBucketLogging
+                  - s3:PutObject
+                  - s3:PutObjectAcl
+                  - s3:PutObjectRetention
+                  - s3:PutObjectTagging
+                  - s3:PutObjectVersionTagging
+                  - s3:ReplicateDelete
+                  - s3:ReplicateObject
+                  - s3:ReplicateTags
+                  - s3:RestoreObject
+                  - s3:DeleteObject
+                Resource: '*'
+      RoleName: BftLambdaExecRole
+
+  BucketFileTransferFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: src/
+      Handler: app.lambda_handler
+      Runtime: python3.7
+      MemorySize: 1000
+      Role: !GetAtt BftLambdaExecRole.Arn
+      Environment:
+        Variables:
+          HookUrl: 'TEAMS_HOOK_URL'
+      Events:
+        SnsEvent:
+          Type: SNS
+          Properties:
+            Topic: !ImportValue WorkflowSnsTopicArn
+    DependsOn:
+    - BftLambdaExecRole
+  
+  
+
+Outputs:
+  BucketFileTransferFunction:
+    Description: "Bucket File Transfer Lambda Function ARN"
+    Value: !GetAtt BucketFileTransferFunction.Arn
+    Export:
+      Name: BucketFileTransferFunctionArn
+  BucketFileTransferFunctionIamRole:
+    Description: "Implicit IAM Role created for Bucket File Transfer function"
+    Value: !GetAtt BftLambdaExecRole.Arn
+    Export:
+      Name: BftLambdaExecRoleArn

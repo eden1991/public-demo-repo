@@ -1,0 +1,5 @@
+Sid: AllowFullS3Access
+Action:
+  - s3:*
+Effect: Allow
+Resource:

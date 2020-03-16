@@ -1,0 +1,22 @@
+{
+    "Records": [
+        {
+            "EventSource": "aws:sns",
+            "EventVersion": "1.0",
+            "EventSubscriptionArn": "arn:aws:sns:ap-southeast-2:981861455358:NewObjectNotificationsTopic:17bf5584-c7b3-4ae4-812f-08a723b68738",
+            "Sns": {
+                "Type": "Notification",
+                "MessageId": "80e38bfa-5704-59c8-a839-dd4f9d65572a",
+                "TopicArn": "arn:aws:sns:ap-southeast-2:981861455358:NewObjectNotificationsTopic",
+                "Subject": "None",
+                "Message": "{'source_bucket':'eden-test-notification','source_root':'temp/whicsmart','target_bucket':'eden-test-notification','target_root':'raw/whicsmart','archive_bucket':'eden-test-notification','archive_root':'archive/whicsmart'}",
+                "Timestamp": "2020-02-06T08:02:41.964Z",
+                "SignatureVersion": "1",
+                "Signature": "bPv9jnRitB7hsggsZ5L9nQIFam29W4lDLu/X+UKElAC3F+b+tolyX93ZPvszaT6OK0wK0FKOxo76TcuEFbY42LPIxbfpYbtTjyUTewSDKQFyrwwNrs1JZE1tzLYjzSzR4ZWw9HDAf7h6OdSoGltRiIgqw06IkJaT8Mzo3bSolS9YGh2klhpABe9F008VDwWJfRCln9/CYvM0c0X1CN2mwjzdRIzzChbZJuu3urdRnaJaISAFeL7d61NnYg6Ps98QGZIdGa/9cWGTS5jVFdyn9ooXgVTMskZJqD+4JU95gAYmN/CFVwf9krh069cMz3NEcGKXEglNx7KkNiBKIpidyA==",
+                "SigningCertUrl": "https://sns.ap-southeast-2.amazonaws.com/SimpleNotificationService-a86cb10b4e1f29c941702d737128f7b6.pem",
+                "UnsubscribeUrl": "https://sns.ap-southeast-2.amazonaws.com/?Action=Unsubscribe&SubscriptionArn=arn:aws:sns:ap-southeast-2:981861455358:NewObjectNotificationsTopic:17bf5584-c7b3-4ae4-812f-08a723b68738",
+                "MessageAttributes": {}
+            }
+        }
+    ]
+}

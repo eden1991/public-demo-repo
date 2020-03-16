@@ -1,0 +1,36 @@
+{
+    "ResponseMetadata": {
+        "RequestId": "4F6F9E28477C56B1",
+        "HostId": "O3jNyUnJazURP1Q7CvxfGXHl4Y2HOH/gxWYj+xmbnRFEdftHyf3JMeO/1gZTt65yF+qd8mfYrbA=",
+        "HTTPStatusCode": 200,
+        "HTTPHeaders": {
+            "x-amz-id-2": "O3jNyUnJazURP1Q7CvxfGXHl4Y2HOH/gxWYj+xmbnRFEdftHyf3JMeO/1gZTt65yF+qd8mfYrbA=",
+            "x-amz-request-id": "4F6F9E28477C56B1",
+            "date": "Thu, 06 Feb 2020 04:15:23 GMT",
+            "x-amz-bucket-region": "ap-southeast-2",
+            "content-type": "application/xml",
+            "transfer-encoding": "chunked",
+            "server": "AmazonS3"
+        },
+        "RetryAttempts": 0
+    },
+    "IsTruncated": "False",
+    "Marker": "",
+    "Contents": [
+        {
+            "Key": "temp/cdc/dbo/tw202/20200111-022352893.csv",
+            "LastModified": "datetime.datetime(2020, 2, 6, 3, 45, 55, tzinfo=tzutc())",
+            "ETag": "cc7ef1204a418bcef91541ac441dd99b-40",
+            "Size": 328933800,
+            "StorageClass": "STANDARD",
+            "Owner": {
+                "DisplayName": "au-dataplatform-np",
+                "ID": "9afb9eb27c9507fbc60c88a775b408e7ac4715010b5393ec4447db4e60fd7140"
+            }
+        }
+    ],
+    "Name": "eden-test-notification",
+    "Prefix": "temp/onevue",
+    "MaxKeys": 1000,
+    "EncodingType": "url"
+}

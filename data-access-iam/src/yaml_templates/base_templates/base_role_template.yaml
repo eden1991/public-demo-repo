@@ -1,0 +1,29 @@
+RESOURCE_NAME:
+  Type: AWS::IAM::Role
+  Properties:
+    RoleName: ROLE_NAME
+    AssumeRolePolicyDocument:
+      Version: '2012-10-17'
+      Statement:
+        - Effect: Allow
+          Principal:
+            Federated:
+              'Fn::Sub': 'arn:aws:iam::${AWS::AccountId}:saml-provider/AU_ADFS'
+          Action: 'sts:AssumeRoleWithSAML'
+          Condition:
+            StringEquals:
+              'SAML:aud': 'https://signin.aws.amazon.com/saml'
+    ManagedPolicyArns:
+      - arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess
+    Policies:
+      - PolicyName: POLICY_NAME
+        PolicyDocument:
+          Version: '2012-10-17'
+          Statement:
+            - Sid: 'AllowGroupToSeeBucketList'
+              Action:
+              - 's3:GetBucketLocation'
+              - 's3:ListAllMyBuckets'
+              Effect: Allow
+              Resource:
+                - arn:aws:s3:::*

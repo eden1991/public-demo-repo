@@ -1,0 +1,3 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: AWS CloudFormation template to create supporting IAM roles for a datalake
+Resources:

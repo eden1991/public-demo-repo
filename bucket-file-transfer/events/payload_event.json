@@ -1,0 +1,8 @@
+{
+    "source_bucket": "eden-test-notification",
+    "source_root": "temp/cdc",
+    "target_bucket": "eden-test-notification",
+    "target_root": "raw/cdc",
+    "archive_bucket": "eden-test-notification",
+    "archive_root": "archive/cdc"
+}

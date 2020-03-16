@@ -1,0 +1,4 @@
+Sid: ExplicitDeny
+Action: '*'
+Effect: Deny
+Resource:
