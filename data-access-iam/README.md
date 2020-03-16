@@ -5,7 +5,7 @@ This python script is designed to take a csv file consisting of the various role
 ## Usage
 
 1. Make changes to the role_policy_mapping.csv config file.
-    * Add a new row for a role, formatting the name like so `PREFIX-ROLE_SOURCESYSTEM` e.g. `ADFS-DataAnalyst_Retail`, and add the desired permissions under the column of the service being granted to. 
+    * Add a new row for a role, formatting the name like so `PREFIX-ROLE_SOURCESYSTEM` e.g. `ADFS-Role1_Sys1`, and add the desired permissions under the column of the service being granted to. 
     * Add a new service by adding in a new column, following the format of the existing serices.
 2. Execute the python script `src/role_maker.py` and pass in the aforementioned .csv config file e.g. `python3 role_maker.py -f role_policy_mapping.csv`.
 3. Upload the generated cloud formation templates from the newly created folder to S3.
